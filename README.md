@@ -43,10 +43,36 @@ The operational goal is to transmit top-secret gravitational data from remote fi
 - **Observation Post:** Consumes and analyzes data via PQC secure tunnels.
 - **Quantum Specter (Adversary):** Passive/Active MITM with CRQC capabilities.
 
+```mermaid
+graph TD
+    subgraph "Operational Context"
+        FS[Field Station] -- "Telemetry Packet (Unsecured)" --> OP[Observation Post]
+        QS[Quantum Specter] -- "Intercept/Tamper" --> FS
+        QS -- "Intercept/Tamper" --> OP
+    end
+    
+    style FS fill:#e1f5fe,stroke:#01579b
+    style OP fill:#e8f5e9,stroke:#1b5e20
+    style QS fill:#ffebee,stroke:#b71c1c
+```
+
 ### 3.2 System Need Analysis (Requirements)
 - **Technical Requirement [TR-01]:** Establishment of an ML-KEM-768 based asymmetric key pair.
 - **Technical Requirement [TR-02]:** Secure telemetry payload containing localized reduction of G parameters.
 - **Technical Requirement [TR-03]:** Resistance to 10,000-qubit quantum MITM attacks.
+
+```mermaid
+graph LR
+    subgraph "System Capabilities"
+        C1[Key Exchange] --> S[PQC Tunnel]
+        C2[Payload Hashing] --> S
+        C3[Authenticated Encryption] --> S
+    end
+    S -- "Resists" --> T[Shor's Algorithm]
+    S -- "Resists" --> G[Grover's Algorithm]
+    
+    style S fill:#fff3e0,stroke:#e65100
+```
 
 ### 3.3 Logical Architecture (Functions & Components)
 The system is partitioned into five functional phases:
@@ -55,6 +81,16 @@ The system is partitioned into five functional phases:
 3. **LRS-F3: Hybrid Tunneling** (ML-KEM + AES-256-GCM + HKDF).
 4. **LRS-F4: Adversarial Simulation** (Lattice Attack Vectoring).
 5. **LRS-F5: Agility Controller** (Decoherence-aware algorithm switching).
+
+```mermaid
+flowchart TD
+    subgraph "Logical Data Flow"
+        F1[LRS-F1: Key Gen] --> F3[LRS-F3: Tunnel Establishment]
+        F2[LRS-F2: Telemetry Build] --> F3
+        F3 --> F4[LRS-F4: Adversarial Test]
+        F4 --> F5[LRS-F5: Agility Adjustment]
+    end
+```
 
 ### 3.4 Physical Architecture (Implementation)
 Implemented as a `uv`-managed Python environment for high-performance dependency resolution and reproducible systems engineering.
@@ -66,6 +102,15 @@ src/
 ├── src/phase3_secure_tunnel.py       # LRS-F3 implementation
 ├── src/phase4_quantum_mitm_attack.py # LRS-F4 implementation
 └── src/phase5_decoherence_simulation.py # LRS-F5 implementation
+```
+
+```mermaid
+graph TD
+    subgraph "Physical Realization (uv Environment)"
+        V[.venv] --> P[pyproject.toml]
+        P --> S1[src/phase1-5.py]
+        S1 --> O[output/keys.json]
+    end
 ```
 
 ---

@@ -101,6 +101,16 @@ G_local = G₀ × (1 - ε),    where ε = 0.073  (7.3% reduction)
 
 ## 🔬 Lab Phases — Step-by-Step Procedure
 
+```mermaid
+flowchart LR
+    subgraph "Lab Data Flow"
+        P1[Phase 1: Key Gen] -- "Public Key" --> P3
+        P2[Phase 2: Payload Build] -- "Telemetry" --> P3[Phase 3: Secure Tunnel]
+        P3 -- "Ciphertext" --> P4[Phase 4: MITM Attack]
+        P4 -- "Status/Agility" --> P5[Phase 5: Decoherence]
+    end
+```
+
 ---
 
 ### 🔑 Phase 1 — Key Generation
