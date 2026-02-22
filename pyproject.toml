@@ -1,0 +1,66 @@
+[project]
+name = "project-icarus-pqc"
+version = "1.0.0"
+description = "Project Icarus: Securing Gravitational Variance Data via Lattice-Based Cryptography"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+authors = [
+  { name = "Icarus Division", email = "icarus@pqc-lab.example" },
+]
+keywords = ["post-quantum-cryptography", "ml-kem", "lattice", "pqc", "cybersecurity", "education"]
+
+dependencies = [
+  # Open Quantum Safe — ML-KEM, ML-DSA etc.
+  "liboqs-python>=0.10.0",
+  # AES-256-GCM, HKDF, hashing
+  "cryptography>=42.0.0",
+  # Metric tensor / NumPy arrays
+  "numpy>=1.26.0",
+  # Beautiful terminal output
+  "rich>=13.7.0",
+]
+
+[project.optional-dependencies]
+# Uncomment to add interactive notebook support
+# notebook = ["jupyter>=1.0.0", "matplotlib>=3.8.0"]
+
+[project.scripts]
+# Provides `uv run icarus` as a shortcut
+# src/ is exposed as the `src` package; run_lab.py lives at src/run_lab.py
+icarus = "src.run_lab:main"
+
+[tool.uv]
+# Force uv to always create/use a project-local virtual environment
+managed = true
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+# Include the src/ directory as a package named `src`
+packages = ["src"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+  "output/",
+  ".git/",
+  "__pycache__/",
+  "*.pyc",
+]
+
+# ─── Linting & formatting (optional dev tools) ───────────────────────────────
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+
+[tool.pyright]
+pythonVersion = "3.11"
+include = ["src"]

@@ -1,0 +1,17 @@
+# Project Icarus — uv Environment
+# ─────────────────────────────────
+# This file is intentionally minimal.
+# uv resolves and locks ALL dependencies automatically in uv.lock.
+# Do NOT manually edit uv.lock.
+
+# For reference, the direct dependencies are declared in pyproject.toml:
+#   liboqs-python>=0.10.0
+#   cryptography>=42.0.0
+#   numpy>=1.26.0
+#   rich>=13.7.0
+
+# To regenerate the lockfile:
+#   uv lock
+
+# To sync the environment from the lockfile:
+#   uv sync

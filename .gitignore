@@ -1,0 +1,23 @@
+# Project Icarus — .gitignore
+# ────────────────────────────
+# uv / Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+uv.lock          # Optional: commit this for reproducible installs
+.python-version  # Optional: commit this for pinned interpreter
+
+# Lab runtime outputs
+output/
+*.json
+
+# IDE
+.vscode/
+.idea/
+*.suo
+
+# OS
+.DS_Store
+Thumbs.db
