@@ -1,6 +1,8 @@
 # Architecture Description: Project Icarus
 ## Quantum-Safe Gravitational Variance Telemetry System
 
+![Project Icarus Infographic](assets/ProjectIcarus.png)
+
 > **Standard Compliance:** ISO/IEC/IEEE 42010:2011 (Architecture Description)  
 > **Lifecycle Framework:** ISO/IEC/IEEE 15288:2015 (Systems Engineering)  
 > **Methodology:** Arcadia (Architecture Analysis & Design Integrated Approach)  
