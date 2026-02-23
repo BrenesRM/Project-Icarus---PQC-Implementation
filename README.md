@@ -165,4 +165,4 @@ uv run icarus
 This lab serves as a Proof-of-Concept for **Algorithm Agility**. As systems transition from classical to post-quantum standards, the ability to maintain **Perfect Forward Secrecy (PFS)** while navigating the **Quantum Coherence** limits of attackers is paramount for modern infrastructure protection.
 
 ---
-*© 2026 Icarus Division - Research & Development. Standards-compliant documentation.*
+*© 2026 Kodiak Shield AI - Research & Development. Standards-compliant documentation.*
